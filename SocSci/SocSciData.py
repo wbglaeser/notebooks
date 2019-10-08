@@ -56,6 +56,7 @@ def collect_complete_cases():
 complete_cases = collect_complete_cases()
 df = df[df["SERIAL"].isin(complete_cases)]
 
+# Pivot table to long format
 value_vars_drop = ['SERIAL',"QUESTNNR"]
 value_vars = [x for x in df.columns if x not in value_vars_drop]
 df = pd.melt(df, id_vars=["SERIAL","QUESTNNR"], value_vars=value_vars)
